@@ -1,0 +1,60 @@
+{
+  "name": "kiranfullstack-mock-server",
+  "displayName": "kiranfullstack-mock-server",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:extension.runMockServer",
+    "onLanguage:json",
+    "onCommand:extension.runMockServerFromExplorer"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.runMockServer",
+        "title": "Run mock backend"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.runMockServer",
+          "when": "resourceLangId == json"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "extension.runMockServer",
+          "when": "resourceLangId == json"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "json-server": "^0.17.3"
+  }
+}
